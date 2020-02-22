@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_163005) do
     t.string "name"
     t.text "bio"
     t.string "image_url"
-    t.string "DOB"
+    t.string "dob"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

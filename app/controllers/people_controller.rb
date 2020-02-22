@@ -24,6 +24,15 @@ class PeopleController < ApplicationController
     end
   end
 
+  def destroy
+    unless @person[:id] == 10
+      render json: { message: "Nope. You can't delete #{@person[:name]}, the person you are looking for saved over 300 slaves during a ten-year span." }
+    else
+      Person.destroy(params[:id])
+      render json: { message: "Yes, notice that this #{@person[:name]} has two instances in our db, so it's okay if we remove the duplicate." }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
@@ -32,6 +41,6 @@ class PeopleController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def person_params
-      params.require(:person).permit(:name, :bio, :DOB)
+      params.require(:person).permit(:name, :bio, :dob)
     end
 end

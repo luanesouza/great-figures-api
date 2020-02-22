@@ -4,7 +4,7 @@ class CreatePeople < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :bio
       t.string :image_url
-      t.string :DOB
+      t.string :dob
 
       t.timestamps
     end
